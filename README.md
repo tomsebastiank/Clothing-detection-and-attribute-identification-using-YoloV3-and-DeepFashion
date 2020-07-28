@@ -18,11 +18,16 @@ https://github.com/AlexeyAB/darknet
     
 ## Convert Deep fashion annotations to YoloV3 format
 
+
 Deep fashion annotation is json file in the following format 
 {"item2": {"segmentation": [[460, 438, 374, 484, 251, 520, 269, 586, 298, 622, 410, 623, 410, 567, 413, 591, 420, 623, 465, 622, 456, 561, 466, 504, 460, 438], [374, 484, 251, 520, 269, 586, 298, 622, 410, 623, 410, 567, 374, 484], [460, 438, 374, 484, 410, 567, 413, 591, 420, 623, 465, 622, 456, 561, 466, 504, 460, 438]], "scale": 2, "viewpoint": 2, "zoom_in": 3, "landmarks": [251, 520, 1, 374, 484, 1, 460, 438, 1, 269, 586, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 410, 567, 1, 413, 591, 2, 0, 0, 0, 0, 0, 0, 456, 561, 2, 0, 0, 0], "style": 0, "bounding_box": [249, 423, 466, 623], "category_id": 8, "occlusion": 2, "category_name": "trousers"}, "source": "user", "pair_id": 1, "item1": {"segmentation": [[257, 35, 261, 89, 228, 123, 137, 103, 45, 91, 1, 176, 0, 332, 47, 447, 151, 401, 141, 366, 129, 328, 141, 364, 219, 485, 274, 603, 401, 590, 467, 502, 442, 336, 369, 195, 348, 138, 363, 163, 372, 197, 433, 137, 396, 92, 341, 35, 257, 35], [1, 176, 0, 332, 47, 447, 151, 401, 141, 366, 129, 328, 1, 176], [348, 138, 363, 163, 372, 197, 433, 137, 396, 92, 341, 35, 348, 138]], "scale": 3, "viewpoint": 2, "zoom_in": 2, "landmarks": [182, 54, 1, 45, 91, 1, 137, 103, 1, 228, 123, 1, 261, 89, 1, 257, 35, 1, 0, 0, 0, 0, 0, 0, 47, 447, 2, 151, 401, 2, 141, 366, 2, 129, 328, 2, 141, 364, 2, 219, 485, 2, 274, 603, 2, 401, 590, 2, 0, 0, 0, 442, 336, 2, 369, 195, 1, 348, 138, 1, 363, 163, 1, 372, 197, 1, 433, 137, 2, 396, 92, 2, 341, 35, 1], "style": 1, "bounding_box": [0, 29, 466, 622], "category_id": 1, "occlusion": 2, "category_name": "short sleeve top"}}
 
 We need to convert the same to YoloV3 annotation txt format 
+
+
 0 0.49786324786324787 0.5216346153846154 0.9957264957264957 0.9503205128205128
+
+
 7 0.7638888888888888 0.8381410256410257 0.4636752136752137 0.32051282051282054
 
 Each row in the annotation file should define one bounding box, using the syntax label_idx x_center y_center width height. The coordinates should be scaled [0, 1], and the label_idx should be zero-indexed and correspond to the row number of the class name in data/custom/classes.names
